@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maths Quiz Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Team Setup Screen -->
+    <div id="team-setup">
+        <h2>Enter Number of Teams</h2>
+        <input type="number" id="team-count" min="1" max="10" value="2">
+        
+        <button onclick="generateTeamInputs()">Next</button>
+
+        <div id="team-names" style="display: none;">
+            <h2>Enter Team Names</h2>
+            <div id="team-inputs"></div>
+            <button onclick="startGame()">Start Game</button>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-container" style="display: none;">
+        
+        <!-- Move "Team's Turn" to the top -->
+        <h2 id="team-turn">Team 1's Turn</h2>
+
+        <!-- Suitcase Grid (Moves down slightly with CSS) -->
+        <div id="grid-container">
+            <div id="grid"></div>
+        </div>
+
+        <!-- Overlay (Prevents clicks outside modal) -->
+        <div id="overlay" onclick="closeQuestion()"></div>
+
+        <!-- Question Modal (Popup) -->
+        <div id="question-modal" class="popup">
+            <h2>Question</h2>
+            <p id="question-text"></p>
+            <input type="text" id="answer">
+            <br>
+            <button id="submit-btn">Submit</button>
+            <button onclick="closeQuestion()">Close</button>
+        </div>
+
+        <!-- Leaderboard Section -->
+        <div id="leaderboard-container">
+            <h2>Leaderboard</h2>
+            <table id="leaderboard">
+                <tr>
+                    <th>Team</th>
+                    <th>Score</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="result-popup">
+        <span id="result-text"></span>
+    </div>
+    
+    <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+
+    <!-- Audio Files -->
+    <audio id="correct-sound" src="correct.mp3"></audio>
+    <audio id="wrong-sound" src="wrong.mp3"></audio>
+    <audio id="hover-sound" src="hover.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
